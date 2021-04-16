@@ -72,18 +72,18 @@ export const AddTicketForm = () => {
 
   return (
     <Jumbotron className="mt-3 add-new-ticket bg-light">
-      <h1 className="text-info text-center">Add New Ticket</h1>
-      <hr />
+      <h1 className="text-info text-center"> Add New Ticket </h1> <hr />
       <div>
-        {error && <Alert variant="danger">{error}</Alert>}
-        {successMsg && <Alert variant="primary">{successMsg}</Alert>}
-        {isLoading && <Spinner variant="primary" animation="border" />}
-      </div>
+        {" "}
+        {error && <Alert variant="danger"> {error} </Alert>}{" "}
+        {successMsg && <Alert variant="primary"> {successMsg} </Alert>}{" "}
+        {isLoading && <Spinner variant="primary" animation="border" />}{" "}
+      </div>{" "}
       <Form autoComplete="off" onSubmit={handleOnSubmit}>
         <Form.Group as={Row}>
           <Form.Label column sm={3}>
-            Subject
-          </Form.Label>
+            Subject{" "}
+          </Form.Label>{" "}
           <Col sm={9}>
             <Form.Control
               name="subject"
@@ -95,14 +95,15 @@ export const AddTicketForm = () => {
               required
             />
             <Form.Text className="text-danger">
-              {frmDataErro.subject && "SUbject is required!"}
-            </Form.Text>
-          </Col>
-        </Form.Group>
+              {" "}
+              {frmDataErro.subject && "SUbject is required!"}{" "}
+            </Form.Text>{" "}
+          </Col>{" "}
+        </Form.Group>{" "}
         <Form.Group as={Row}>
           <Form.Label column sm={3}>
-            Issue Found
-          </Form.Label>
+            Issue Found{" "}
+          </Form.Label>{" "}
           <Col sm={9}>
             <Form.Control
               type="date"
@@ -111,10 +112,10 @@ export const AddTicketForm = () => {
               onChange={handleOnChange}
               required
             />
-          </Col>
-        </Form.Group>
+          </Col>{" "}
+        </Form.Group>{" "}
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label> Password </Form.Label>{" "}
           <Form.Control
             as="textarea"
             name="message"
@@ -124,18 +125,10 @@ export const AddTicketForm = () => {
             required
           />
         </Form.Group>
-
         <Button type="submit" variant="info" block>
-          Open Ticket
-        </Button>
-      </Form>
+          Open Ticket{" "}
+        </Button>{" "}
+      </Form>{" "}
     </Jumbotron>
   );
 };
-
-// AddTicketForm.propTypes = {
-//   handleOnSubmit: PropTypes.func.isRequired,
-//   handleOnChange: PropTypes.func.isRequired,
-//   frmDt: PropTypes.object.isRequired,
-//   frmDataErro: PropTypes.object.isRequired,
-// };
