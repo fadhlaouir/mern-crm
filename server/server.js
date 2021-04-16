@@ -18,7 +18,7 @@ app.use(helmet());
 //handle CORS error
 app.use(cors());
 
-//MongoDB Connection Setup
+//MongoDB Connection
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
