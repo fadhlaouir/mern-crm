@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
+
 import {
   Container,
   Row,
@@ -9,8 +12,6 @@ import {
   Spinner,
   Alert,
 } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 import { loginPending, loginSuccess, loginFail } from "./loginSlice";
 import { userLogin } from "../../api/userApi";
@@ -26,8 +27,8 @@ export const LoginForm = ({ formSwitcher }) => {
     sessionStorage.getItem("accessJWT") && history.push("/dashboard");
   }, [history, isAuth]);
 
-  const [email, setEmail] = useState("e2@e.com");
-  const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -74,7 +75,7 @@ export const LoginForm = ({ formSwitcher }) => {
     <Container>
       <Row>
         <Col>
-          <h1 className="text-info text-center">Client Login</h1>
+          <h1 className="text-info text-center">Login</h1>
           <hr />
           {error && <Alert variant="danger">{error}</Alert>}
           <Form autoComplete="off" onSubmit={handleOnSubmit}>
@@ -101,7 +102,9 @@ export const LoginForm = ({ formSwitcher }) => {
               />
             </Form.Group>
 
-            <Button type="submit">Login</Button>
+            <Button type="submit" style={{ margin: "auto", display: "flex" }}>
+              Login
+            </Button>
             {isLoading && <Spinner variant="primary" animation="border" />}
           </Form>
           <hr />
