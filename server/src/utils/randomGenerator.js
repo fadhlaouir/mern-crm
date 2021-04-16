@@ -1,11 +1,11 @@
 const randomPinNumber = (length) => {
-  let pin = "";
+    let pin = "";
 
-  for (let i = 0; i < length; i++) {
-    pin += Math.floor(Math.random() * 10);
-  }
+    for (let i = 0; i < length; i++) {
+        pin += Math.floor(Math.random() * 10);
+    }
 
-  return pin;
+    return pin;
 };
 
 module.exports = { randomPinNumber };
