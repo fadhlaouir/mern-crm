@@ -8,14 +8,14 @@ import registrationReducer from "./components/registration-form/userRegestration
 import passwordReducer from "./components/password-reset/passwordSlice";
 
 const store = configureStore({
-	reducer: {
-		tickets: ticketsReducer,
-		login: loginReducer,
-		user: userReducer,
-		openTicket: newTicketReducer,
-		registration: registrationReducer,
-		password: passwordReducer,
-	},
+    reducer: {
+        tickets: ticketsReducer,
+        login: loginReducer,
+        user: userReducer,
+        openTicket: newTicketReducer,
+        registration: registrationReducer,
+        password: passwordReducer,
+    },
 });
 
 export default store;

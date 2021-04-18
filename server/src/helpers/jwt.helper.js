@@ -5,9 +5,11 @@ const { token } = require("morgan");
 
 const crateAccessJWT = async(email, _id) => {
     try {
-        const accessJWT = await jwt.sign({ email }, process.env.JWT_ACCESS_SECRET, {
-            expiresIn: "1d", //change this to 15m
-        });
+        const accessJWT = await jwt.sign({ email },
+            `${process.env.JWT_ACCESS_SECRET}`, {
+                expiresIn: "100d", //change this to 15m
+            }
+        );
 
         await setJWT(accessJWT, _id);
 
@@ -19,9 +21,11 @@ const crateAccessJWT = async(email, _id) => {
 
 const crateRefreshJWT = async(email, _id) => {
     try {
-        const refreshJWT = jwt.sign({ email }, process.env.JWT_REFRESH_SECRET, {
-            expiresIn: "30d",
-        });
+        const refreshJWT = jwt.sign({ email },
+            `${process.env.JWT_REFRESH_SECRET}`, {
+                expiresIn: "100d",
+            }
+        );
 
         await storeUserRefreshJWT(_id, refreshJWT);
 
@@ -33,14 +37,18 @@ const crateRefreshJWT = async(email, _id) => {
 
 const verifyAccessJWT = (userJWT) => {
     try {
-        return Promise.resolve(jwt.verify(userJWT, process.env.JWT_ACCESS_SECRET));
+        return Promise.resolve(
+            jwt.verify(userJWT, `${process.env.JWT_ACCESS_SECRET}`)
+        );
     } catch (error) {
         return Promise.resolve(error);
     }
 };
 const verifyRefreshJWT = (userJWT) => {
     try {
-        return Promise.resolve(jwt.verify(userJWT, process.env.JWT_REFRESH_SECRET));
+        return Promise.resolve(
+            jwt.verify(userJWT, `${process.env.JWT_REFRESH_SECRET}`)
+        );
     } catch (error) {
         return Promise.resolve(error);
     }
