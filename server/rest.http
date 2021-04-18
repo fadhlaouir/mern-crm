@@ -6,7 +6,7 @@ Content-Type: application/json
     "name": "Prem Acharya",
     "company": "Company name",
     "address": "Some address Sydney",
-    "phone": "041000000",
+    "phone": "400000001",
     "email": "e2@e.com1",
     "password": "secret222"
 }

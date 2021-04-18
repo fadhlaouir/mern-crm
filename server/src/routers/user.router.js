@@ -64,7 +64,7 @@ router.patch("/verify", async(req, res) => {
         if (result && result.id) {
             return res.json({
                 status: "success",
-                message: "You account has been activated, you may sign in now.",
+                message: "Your account has been activated, you may sign in now.",
             });
         }
 
@@ -134,7 +134,7 @@ router.post("/login", async(req, res) => {
     if (!user.isVerified) {
         return res.json({
             status: "error",
-            message: "You account has not been verified. Please check your email and verify you account before able to login!",
+            message: "Your account has not been verified. Please check your email and verify you account before able to login!",
         });
     }
 
@@ -155,8 +155,8 @@ router.post("/login", async(req, res) => {
     res.json({
         status: "success",
         message: "Login Successfully!",
-        accessJWT,
-        refreshJWT,
+        // accessJWT,
+        // refreshJWT,
     });
 });
 
