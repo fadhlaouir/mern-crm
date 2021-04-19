@@ -155,8 +155,8 @@ router.post("/login", async(req, res) => {
     res.json({
         status: "success",
         message: "Login Successfully!",
-        // accessJWT,
-        // refreshJWT,
+        accessJWT,
+        refreshJWT,
     });
 });
 
@@ -166,7 +166,6 @@ router.post("/reset-password", resetPassReqValidation, async(req, res) => {
     const user = await getUserByEmail(email);
 
     if (user && user._id) {
-        /// crate// 2. create unique 6 digit pin
         const setPin = await setPasswordRestPin(email);
         await emailProcessor({
             email,
