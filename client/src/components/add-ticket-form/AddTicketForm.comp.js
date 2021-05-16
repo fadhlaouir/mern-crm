@@ -82,7 +82,7 @@ export const AddTicketForm = () => {
       <Form autoComplete="off" onSubmit={handleOnSubmit}>
         <Form.Group as={Row}>
           <Form.Label column sm={3}>
-            Subject{" "}
+            Name{" "}
           </Form.Label>{" "}
           <Col sm={9}>
             <Form.Control
@@ -115,7 +115,7 @@ export const AddTicketForm = () => {
           </Col>{" "}
         </Form.Group>{" "}
         <Form.Group>
-          <Form.Label> Password </Form.Label>{" "}
+          <Form.Label> Description </Form.Label>{" "}
           <Form.Control
             as="textarea"
             name="message"
